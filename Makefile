@@ -43,10 +43,11 @@ ARCH =	ar rc $(NAME) $(OBJ)
 
 INDX =	ranlib $(NAME)
 
-$(NAME) :
-	$(CC) $(CFLAGS) -c $(SRC) $(IFLAGS) 
+$(NAME) : $(SRC)
+	$(CC) $(CFLAGS) -c $? $(IFLAGS) 
 	$(ARCH)
 	$(INDX)
+	rm -f $(OBJ)
 
 all : $(NAME)
 
