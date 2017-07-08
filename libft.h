@@ -65,6 +65,7 @@ void				ft_bzero(void *s, size_t n);
 void				*ft_memset(void *b, int c, size_t len);
 char				*ft_strncat(char *s1, const char *s2, size_t n);
 
+void				*ft_realloc(void *ptr, size_t size, size_t oldsize);
 void				*ft_memalloc(size_t size);
 void				ft_memdel(void **ap);
 char				*ft_strnew(size_t size);

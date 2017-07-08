@@ -13,7 +13,7 @@ void	*ft_realloc(void *ptr, size_t size, size_t oldsize)
 	}
 	if ((p = malloc(size)) == NULL)
 		return (NULL);
-	ft_memcpt(p, ptr, oldsize);
+	ft_memcpy(p, ptr, oldsize);
 	free(ptr);
 	return (p);
 }
