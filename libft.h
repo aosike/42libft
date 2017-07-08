@@ -23,6 +23,18 @@ typedef	struct		s_list
 	struct s_list	*next;
 }					t_list;
 
+typedef struct		s_buf
+{
+	char			*buf;
+	size_t			blen;
+	size_t			bmax;
+}					t_buf;
+
+t_buf				*ft_buf_init(t_buf *b, size_t size);
+t_buf				*ft_buf_add(t_buf *b, char *s, size_t len);
+t_buf				*ft_buf_resize(t_buf *b, size_t len);
+t_buf				*ft_buf_set(t_buf *b, int c, size_t len);
+
 int					ft_tolower(int c);
 int					ft_toupper(int c);
 int					ft_isprint(int c);
