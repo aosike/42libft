@@ -6,7 +6,7 @@
 #    By: agundry <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/28 09:03:11 by agundry           #+#    #+#              #
-#    Updated: 2018/01/05 15:33:15 by agundry          ###   ########.fr        #
+#    Updated: 2018/01/05 15:40:48 by agundry          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,18 +58,18 @@ ARCH =	ar rc $(NAME) $(OBJ)
 
 INDX =	ranlib $(NAME)
 
-$(NAME) : $(SRC)
-	$(CC) $(CFLAGS) $(IFLAGS) -c -o $(OBJ) $? 
+all:	$(NAME)
+
+$(NAME): $(OBJ)
 	$(ARCH)
-	$(INDX)
+
+$(OBJ): %.o: $(SRC)
+	$(CC) $(CFLAGS) $(IFLAGS) -c $< -o $@
+
+clean:
 	rm -f $(OBJ)
 
-all : $(NAME)
-
-clean :	
-	rm -f $(OBJ)
-
-fclean : clean
+fclean: clean
 	rm -f $(NAME)
 
-re : fclean all
+re: fclean all
