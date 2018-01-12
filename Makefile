@@ -6,7 +6,7 @@
 #    By: agundry <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/28 09:03:11 by agundry           #+#    #+#              #
-#    Updated: 2018/01/05 15:40:48 by agundry          ###   ########.fr        #
+#    Updated: 2018/01/12 13:10:50 by agundry          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CC =	gcc
 
 CFLAGS =	-Wall -Werror -Wextra
 
-IFLAGS =	-I inc/.
+IFLAGS =	-I inc
 
 SDIR =	src/
 
@@ -48,13 +48,14 @@ SFILES =	ft_lstnew.c ft_lstdelone.c ft_lstdel.c ft_lstadd.c ft_lstiter.c \
 			int_formatting.c str_formatting.c conv_c.c conv_d.c conv_prc.c \
 			conv_s.c conv_uo.c conv_wc.c conv_wcs.c conv_x.c utils.c \
 			\
-			get_next_line.c
+			get_next_line.c get_file.c
 
 SRC = $(patsubst %.c,$(SDIR)%.c,$(SFILES))
 
-OBJ =	$(patsubst %.c,$(ODIR)%.o,$(SFILES)) 
+#OBJ =	$(patsubst %.c,$(ODIR)%.o,$(SFILES)) 
+OBJ =	$(patsubst %.c,%.o,$(SFILES)) 
 
-ARCH =	ar rc $(NAME) $(OBJ)
+ARCH =	ar rcs $(NAME) $(OBJ)
 
 INDX =	ranlib $(NAME)
 
@@ -62,12 +63,15 @@ all:	$(NAME)
 
 $(NAME): $(OBJ)
 	$(ARCH)
+	@mkdir obj
+	@-mv $(OBJ) obj
 
 $(OBJ): %.o: $(SRC)
 	$(CC) $(CFLAGS) $(IFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJ)
+	#rm -f $(OBJ)
+	rm -rf obj
 
 fclean: clean
 	rm -f $(NAME)
