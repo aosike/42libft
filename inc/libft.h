@@ -6,7 +6,7 @@
 /*   By: agundry <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/06 13:47:00 by agundry           #+#    #+#             */
-/*   Updated: 2018/01/20 10:15:25 by agundry          ###   ########.fr       */
+/*   Updated: 2018/01/20 10:29:47 by agundry          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,7 @@
 # define FT_MAX(a, b) ((a) < (b) ? (b) : (a))
 # define FT_BUF_FREE(b) (free((b)->buf))
 
-# ifndef BUFF_SIZE
-#  define BUFF_SIZE 1024
-# endif
+# define BUFF_SIZE 1024
 
 /*get next line*/
 # define MAX_FD 4864
