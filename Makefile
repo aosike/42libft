@@ -6,7 +6,7 @@
 #    By: agundry <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/28 09:03:11 by agundry           #+#    #+#              #
-#    Updated: 2018/01/20 10:04:20 by agundry          ###   ########.fr        #
+#    Updated: 2018/01/20 10:43:13 by agundry          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,18 +52,17 @@ SFILES =	ft_lstnew.c ft_lstdelone.c ft_lstdel.c ft_lstadd.c ft_lstiter.c \
 
 SRC = $(patsubst %.c,$(SDIR)%.c,$(SFILES))
 
-OBJ =	$(patsubst %.c,$(ODIR)%.o,$(SFILES)) 
+OBJ =	$(patsubst %.c,%.o,$(SFILES)) 
 
 ARCH =	ar rcs $(NAME) $(OBJ)
 
 INDX =	ranlib $(NAME)
 
-$(NAME) : $(OBJ)
+$(NAME) :
+	$(CC) $(CFLAGS) -c $(SRC) $(IFLAGS)
 	$(ARCH)
 	$(INDX)
 
-$(OBJ) : %.o: $(SRC)
-	$(CC) $(CFLAGS) $(IFLAGS) -c $< -o $@
 
 all : $(NAME)
 
