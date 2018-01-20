@@ -6,7 +6,7 @@
 /*   By: agundry <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/06 13:47:00 by agundry           #+#    #+#             */
-/*   Updated: 2018/01/05 15:05:29 by agundry          ###   ########.fr       */
+/*   Updated: 2018/01/20 10:15:25 by agundry          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,6 +135,7 @@ t_buf				*ft_buf_set(t_buf *b, int c, size_t len);
 
 /*get next line, TO ADD: GET NEXT FILE*/
 int					get_next_line(int fd, char **line);
+int					get_file(int fd, char **file);
 
 /*string manipulation and test*/
 int					ft_tolower(int c);
